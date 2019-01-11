@@ -1,7 +1,8 @@
 FROM ubuntu:xenial
 MAINTAINER yasuyuky <yasuyuki.ymd@gmail.com>
 
-RUN apt-get -y update && apt-get -y install curl g++ libssl-dev pkg-config musl-tools
+RUN apt -y update && apt -y upgrade
+RUN apt -y update && apt -y install curl g++ libssl-dev pkg-config musl-tools
 ENV RUST_VERSION 1.31.1
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain ${RUST_VERSION}
 ENV PATH $PATH:/root/.cargo/bin
